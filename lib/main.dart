@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:photo_editing_app/core/constants/enums.dart';
+import 'package:photo_editing_app/core/init/app_providers.dart';
+import 'package:photo_editing_app/core/init/theme/theme.dart';
 import 'package:photo_editing_app/view/home/home_page.dart';
+import 'core/init/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,16 +12,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
+    return AppProviders(
+      child: MaterialApp(
+        title: 'Photograpp',
+        theme: lightTheme,
+        routes: Routes().routes,
       ),
-      home:  HomePage(),
     );
   }
 }

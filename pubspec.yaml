@@ -16,7 +16,14 @@ dependencies:
 
   #Core Utility
   #UI
+  
+  #Network
+  json_serializable: ^6.1.4
+  json_annotation: ^4.6.0
+  
   #State Management
+  equatable: ^2.0.3
+  provider: ^6.0.2
   #Authentication
 
   #Fonts and Icons
