@@ -5,6 +5,11 @@ extension ThemeContext on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
 }
 
+extension MediaQueryExtension on BuildContext{
+  double get width =>MediaQuery.of(this).size.width;
+  double get height =>MediaQuery.of(this).size.height;
+}
+
 ThemeData get lightTheme => ThemeData(
       brightness: Brightness.light,
       fontFamily: 'Lato',

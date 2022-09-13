@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:photo_editing_app/core/constants/enums.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:photo_editing_app/core/init/app_providers.dart';
 import 'package:photo_editing_app/core/init/theme/theme.dart';
-import 'package:photo_editing_app/view/home/home_page.dart';
 import 'core/init/routes/routes.dart';
 
 void main() {
@@ -14,11 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppProviders(
-      child: MaterialApp(
-        title: 'Photograpp',
-        theme: lightTheme,
-        routes: Routes().routes,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      builder: (context, child) => AppProviders(
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Photograpp',
+          theme: lightTheme,
+          routes: Routes().routes,
+        ),
       ),
     );
   }
