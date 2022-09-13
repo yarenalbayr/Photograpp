@@ -1,4 +1,6 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_editing_app/core/constants/custom_padding.dart';
 import 'package:photo_editing_app/core/init/theme/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -19,8 +21,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
     final appController = context.read<AppController>();
     return ClipRRect(
       borderRadius: const BorderRadius.only(
-        topRight: Radius.circular(28),
-        topLeft: Radius.circular(28),
+        topRight: Radius.circular(12),
+        topLeft: Radius.circular(12),
       ),
       child: BottomNavigationBar(
         backgroundColor: context.theme.colorScheme.secondary,
@@ -36,21 +38,36 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: appController.pageIndex == RouteEnums.home.index
                 ? const AnimatedBarItem(
                     routeEnum: RouteEnums.home,
-                    icon: Icons.home_filled,
+                    icon: FluentIcons.home_24_regular,
                   )
-                : const Icon(Icons.home_filled),
+                : Icon(
+                    FluentIcons.home_24_regular,
+                    color: context.theme.colorScheme.background,
+                  ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: appController.pageIndex == RouteEnums.favs.index
-                ? const AnimatedBarItem(routeEnum: RouteEnums.favs, icon: Icons.favorite)
-                : const Icon(Icons.favorite),
+                ? const AnimatedBarItem(
+                    routeEnum: RouteEnums.favs,
+                    icon: FluentIcons.heart_24_regular,
+                  )
+                : Icon(
+                    FluentIcons.heart_24_regular,
+                    color: context.theme.colorScheme.background,
+                  ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: appController.pageIndex == RouteEnums.profile.index
-                ? const AnimatedBarItem(routeEnum: RouteEnums.profile, icon: Icons.person)
-                : const Icon(Icons.person),
+                ? const AnimatedBarItem(
+                    routeEnum: RouteEnums.profile,
+                    icon: FluentIcons.person_24_regular,
+                  )
+                : Icon(
+                    FluentIcons.person_24_regular,
+                    color: context.theme.colorScheme.background,
+                  ),
             label: '',
           ),
         ],
@@ -70,10 +87,9 @@ class AnimatedBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(seconds: 5),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(24)), boxShadow: <BoxShadow>[
+    return Container(
+      padding: PaddingConstans().small,
+      decoration: BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(16)), boxShadow: <BoxShadow>[
         BoxShadow(color: context.theme.colorScheme.primary),
       ]),
       child: Wrap(
@@ -82,12 +98,15 @@ class AnimatedBarItem extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: context.theme.colorScheme.secondary,
+            color: context.theme.colorScheme.background,
           ),
-          Text(routeEnum.name.replaceFirst(
-            routeEnum.name[0],
-            routeEnum.name[0].toUpperCase(),
-          ))
+          Text(
+            routeEnum.name.replaceFirst(
+              routeEnum.name[0],
+              routeEnum.name[0].toUpperCase(),
+            ),
+            style: TextStyle(color: context.theme.colorScheme.background),
+          )
         ],
       ),
     );

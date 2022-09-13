@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:photo_editing_app/core/controllers/photo_data_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../controllers/app_controller.dart';
@@ -14,7 +15,9 @@ class AppProviders extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => AppController(),
         ),
-       
+        ChangeNotifierProvider(
+          create: (context) => PhotoDataProvider(),
+        ),
       ],
       child: child,
     );

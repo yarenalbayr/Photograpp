@@ -3,7 +3,7 @@ import 'package:photo_editing_app/view/favorites/favorites_page.dart';
 import 'package:photo_editing_app/view/main_page.dart';
 
 import '../../../view/edit/edit_photo_page.dart';
-import '../../../view/home/home_page.dart';
+import '../../../view/home/view/home_page.dart';
 import '../../../view/profile/profile_page.dart';
 import '../../constants/enums.dart';
 

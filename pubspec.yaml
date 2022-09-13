@@ -15,19 +15,26 @@ dependencies:
     sdk: flutter
 
   #Core Utility
+  flutter_screenutil: ^5.0.4
+
   #UI
+  flutter_staggered_grid_view: ^0.6.2
   
   #Network
   json_serializable: ^6.1.4
   json_annotation: ^4.6.0
+  build_runner: ^2.2.0
+  dio: ^4.0.6
   
   #State Management
-  equatable: ^2.0.3
+  equatable: ^2.0.5
   provider: ^6.0.2
+
   #Authentication
 
   #Fonts and Icons
   google_fonts: ^3.0.1
+  fluentui_system_icons: ^1.1.153
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
