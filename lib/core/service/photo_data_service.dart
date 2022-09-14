@@ -1,26 +1,23 @@
+import 'dart:convert';
 import 'dart:io';
-import 'package:dio/dio.dart';
-
+import 'package:http/http.dart' as http;
 import '../models/photo_data/photo_data_model.dart';
 
 class PhotoDataService {
   PhotoDataService._() {
-    _dio = Dio(BaseOptions(baseUrl: 'https://api.unsplash.com/photos/?client_id=$accesKey'));
+    _uri = Uri.parse('https://api.unsplash.com/photos/?client_id=$accesKey');
   }
-  late final Dio _dio;
+  late final Uri _uri;
   static const accesKey = 'nsPUq-nRnzw6QCJYbuN4dPtXX7pQwhVVB-uNuOWgpJ4';
   static PhotoDataService instance = PhotoDataService._();
-  List<PhotoModel>? photosList = [];
 
   Future<List<PhotoModel>?> fetchPhotos({int page = 1}) async {
     try {
-      final response = await _dio.get('');
+      final response = await http.get(_uri);
       if (response.statusCode == HttpStatus.ok) {
-        final data = response.data;
+        final data = jsonDecode(response.body);
         if (data is List) {
-          
           final result = data.map((e) => PhotoModel.fromJson(e)).toList();
-          photosList = result;
           return result;
         }
       }

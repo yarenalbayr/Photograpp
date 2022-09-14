@@ -8,3 +8,11 @@ class PaddingConstans {
   EdgeInsetsGeometry large = EdgeInsets.all(20.h);
   EdgeInsetsGeometry largest = EdgeInsets.all(24.h);
 }
+
+class BorderRadiusConstants {
+  BorderRadius smallest = BorderRadius.circular(8.h);
+  BorderRadius small = BorderRadius.circular(12.h);
+  BorderRadius medium = BorderRadius.circular(16.h);
+  BorderRadius large = BorderRadius.circular(20.h);
+  BorderRadius largest = BorderRadius.circular(24.h);
+}

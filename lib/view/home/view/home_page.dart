@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:photo_editing_app/core/service/photo_data_service.dart';
-import 'package:photo_editing_app/view/home/view/home_page_view.dart';
+import 'package:photo_editing_app/core/init/theme/theme.dart';
 import 'package:photo_editing_app/view/home/widgets/photo_item.dart';
 
+import '../../../core/constants/constant_values.dart';
 import '../../../core/models/photo_data/photo_data_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,10 +13,17 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends HomePageView {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadiusConstants().small),
+        title: Text(
+          'Photograpp',
+          style: context.textTheme.headlineSmall,
+        ),
+      ),
       body: MasonryGridView.count(
         crossAxisCount: 2,
         itemCount: widget.photosList?.length ?? 0,

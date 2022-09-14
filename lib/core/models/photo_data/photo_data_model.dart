@@ -9,6 +9,7 @@ class PhotoModel extends Equatable {
   final Map urls;
   bool isFav;
 
+
   PhotoModel({
     required this.id,
     required this.urls,
