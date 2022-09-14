@@ -8,6 +8,7 @@ import 'package:photo_editing_app/view/home/view/home_page.dart';
 import 'package:photo_editing_app/view/profile/profile_page.dart';
 import 'package:provider/provider.dart';
 
+import '../core/constants/constant_values.dart';
 import '../core/service/photo_data_service.dart';
 
 class MainPage extends StatefulWidget {
@@ -37,13 +38,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     final appController = context.read<AppController>();
     return Scaffold(
-      appBar: AppBar(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        title: Text(
-          'Photograpp',
-          style: context.textTheme.headlineSmall,
-        ),
-      ),
+      
       bottomNavigationBar: BottomNavBar(pageController: _pageController),
       body: PageView(
         controller: _pageController,

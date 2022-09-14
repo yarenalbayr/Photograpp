@@ -1,6 +1,6 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:photo_editing_app/core/constants/custom_padding.dart';
+import 'package:photo_editing_app/core/constants/constant_values.dart';
 import 'package:photo_editing_app/core/init/theme/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -89,7 +89,7 @@ class AnimatedBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: PaddingConstans().small,
-      decoration: BoxDecoration(borderRadius: const BorderRadius.all(Radius.circular(16)), boxShadow: <BoxShadow>[
+      decoration: BoxDecoration(borderRadius: BorderRadiusConstants().medium, boxShadow: <BoxShadow>[
         BoxShadow(color: context.theme.colorScheme.primary),
       ]),
       child: Wrap(
