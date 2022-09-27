@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:photo_editing_app/core/init/theme/theme.dart';
+import 'package:photo_editing_app/view/home/view/home_page_view.dart';
 import 'package:photo_editing_app/view/home/widgets/photo_item.dart';
 
 import '../../../core/constants/constant_values.dart';
@@ -13,10 +15,14 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends HomePageView{
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () async {
+        final XFile? pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+      }),
       appBar: AppBar(
         shape: RoundedRectangleBorder(borderRadius: BorderRadiusConstants().small),
         title: Text(
