@@ -7,4 +7,6 @@ class AppController extends ChangeNotifier {
     pageIndex = index;
     notifyListeners();
   }
+
+
 }

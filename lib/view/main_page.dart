@@ -20,35 +20,16 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final PageController _pageController = PageController();
-  List<PhotoModel>? photosList;
 
-  @override
-  void initState() {
-    super.initState();
-    getPhotos();
-  }
-
-  Future<void> getPhotos() async {
-    final PhotoDataService photoService = PhotoDataService.instance;
-    photosList = await photoService.fetchPhotos() ?? [];
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
     final appController = context.read<AppController>();
     return Scaffold(
-      
       bottomNavigationBar: BottomNavBar(pageController: _pageController),
       body: PageView(
         controller: _pageController,
-        children: [
-          HomePage(
-            photosList: photosList,
-          ),
-          const FavoritesPage(),
-          const ProfilePage()
-        ],
+        children: const [HomePage(), FavoritesPage(), ProfilePage()],
         onPageChanged: (value) {
           setState(() {
             appController.changePageIndex(value);
