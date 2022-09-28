@@ -17,22 +17,22 @@ class PhotoDataProvider extends ChangeNotifier {
   late final Future<List<PhotoModel>?> _photosList;
   Future<List<PhotoModel>?> get photosList => _photosList;
 
-  List<PhotoModel> favPhotosList = CacheManager.instance.getCachedList();
-
+  final List<PhotoModel> _favPhotosList = CacheManager.instance.getCachedList();
+  List<PhotoModel> get favPhotosList => _favPhotosList.reversed.toList();
+  
   Future<List<PhotoModel>?> get getPhotos async {
     return await PhotoDataService.instance.fetchPhotos();
   }
 
   void changeIsFav(PhotoModel photo) {
     photo.isFav = !photo.isFav;
-    if (photo.isFav == true && !(favPhotosList.contains(photo))) {
-      CacheManager.instance.addCacheItem(photo, favPhotosList);
+    if (photo.isFav == true && !(_favPhotosList.contains(photo))) {
+      CacheManager.instance.addCacheItem(photo, _favPhotosList);
     } else if (photo.isFav == false) {
-      if ((favPhotosList.contains(photo))) CacheManager.instance.removeCacheItem(photo, favPhotosList);
+      if ((_favPhotosList.contains(photo))) CacheManager.instance.removeCacheItem(photo, _favPhotosList);
     }
     notifyListeners();
   }
-
 
   Future<void> shareImage(String url) async {
     final respone = await http.get(Uri.parse(url));
@@ -46,5 +46,4 @@ class PhotoDataProvider extends ChangeNotifier {
   Future<void> downloadImage(String url) async {
     await ImageDownloader.downloadImage(url);
   }
-
 }
