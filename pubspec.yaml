@@ -35,6 +35,8 @@ dependencies:
   equatable: ^2.0.5
   provider: ^6.0.2
   shared_preferences: ^2.0.15
+  flutter_bloc: ^8.1.1
+  bloc: ^8.1.0
 
   #Authentication
 

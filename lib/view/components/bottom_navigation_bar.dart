@@ -4,8 +4,8 @@ import 'package:photo_editing_app/core/constants/constant_values.dart';
 import 'package:photo_editing_app/core/init/theme/theme.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constants/enums.dart';
 import '../../core/controllers/app_controller.dart';
+import '../../core/init/routes/routes.dart';
 
 class BottomNavBar extends StatefulWidget {
   final PageController pageController;
@@ -88,7 +88,7 @@ class AnimatedBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: PaddingConstans().small,
+      padding: PaddingConstans().smallest,
       decoration: BoxDecoration(borderRadius: BorderRadiusConstants().medium, boxShadow: <BoxShadow>[
         BoxShadow(color: context.theme.colorScheme.primary),
       ]),

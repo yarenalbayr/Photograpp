@@ -6,10 +6,11 @@ import '../../../core/service/photo_data_service.dart';
 
 abstract class HomePageView extends State<HomePage> {
   late List<PhotoModel>? photoList = [];
-  int paginatePage = 0;
+  late int paginatePage;
   @override
   void initState() {
-    getPhotos();
+    paginatePage = 0;
+    // getPhotos();
     super.initState();
   }
 
@@ -18,8 +19,6 @@ abstract class HomePageView extends State<HomePage> {
     final PhotoDataService photoService = PhotoDataService.instance;
     var list = await photoService.fetchPhotos(page: paginatePage) ?? [];
     photoList?.addAll(list);
-    setState(() {
-      
-    });
+    setState(() {});
   }
 }

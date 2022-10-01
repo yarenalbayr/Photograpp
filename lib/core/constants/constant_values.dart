@@ -16,3 +16,5 @@ class BorderRadiusConstants {
   BorderRadius large = BorderRadius.circular(20.h);
   BorderRadius largest = BorderRadius.circular(24.h);
 }
+
+const maxPages = 10;

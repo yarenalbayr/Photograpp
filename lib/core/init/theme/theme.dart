@@ -5,20 +5,20 @@ extension ThemeContext on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
 }
 
-extension MediaQueryExtension on BuildContext{
-  double get width =>MediaQuery.of(this).size.width;
-  double get height =>MediaQuery.of(this).size.height;
+extension MediaQueryExtension on BuildContext {
+  double get width => MediaQuery.of(this).size.width;
+  double get height => MediaQuery.of(this).size.height;
 }
 
 ThemeData get lightTheme => ThemeData(
       brightness: Brightness.light,
       fontFamily: 'Lato',
-      backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
+      backgroundColor: const Color(0xFFF5F5F5),
       scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
       colorScheme: const ColorScheme(
         brightness: Brightness.light,
         primary: Color.fromRGBO(223, 148, 89, 1),
-        onPrimary: Color.fromRGBO(223, 148, 89, 1),
+        onPrimary: Color(0xFFDF9459),
         secondary: Color.fromRGBO(61, 60, 60, 1),
         onSecondary: Color.fromRGBO(61, 60, 60, 1),
         error: Color(0XFFE55752),
