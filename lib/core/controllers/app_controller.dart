@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:photo_editing_app/core/constants/enums.dart';
+
+import '../init/routes/routes.dart';
 
 class AppController extends ChangeNotifier {
   int pageIndex = RouteEnums.home.routeIndex;

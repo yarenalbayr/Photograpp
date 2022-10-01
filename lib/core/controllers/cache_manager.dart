@@ -29,6 +29,13 @@ class CacheManager implements ICacheManager {
   late SharedPreferences prefs;
 
   @override
+  List<PhotoModel> getCachedList() {
+    List<PhotoModel> photos;
+    photos = prefs.getStringList('photoList')?.map((e) => PhotoModel.fromJson(jsonDecode(e))).toList() ?? [];
+    return photos;
+  }
+  
+  @override
   Future<void> addCacheItem(PhotoModel photo, List<PhotoModel> favPhotos) async {
     if (!favPhotos.contains(photo)) {
       favPhotos.add(photo);
@@ -37,12 +44,7 @@ class CacheManager implements ICacheManager {
     }
   }
 
-  @override
-  List<PhotoModel> getCachedList() {
-    List<PhotoModel> photos;
-    photos = prefs.getStringList('photoList')?.map((e) => PhotoModel.fromJson(jsonDecode(e))).toList() ?? [];
-    return photos;
-  }
+  
   
   @override
   Future<void> removeCacheItem(PhotoModel photo, List<PhotoModel> favPhotos) async {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:photo_editing_app/core/init/app_providers.dart';
 import 'package:photo_editing_app/core/init/theme/theme.dart';
+import 'package:photo_editing_app/view/splash/splash_page.dart';
 import 'core/controllers/cache_manager.dart';
 import 'core/init/routes/routes.dart';
 
@@ -24,6 +25,8 @@ class MyApp extends StatelessWidget {
           title: 'Photograpp',
           theme: lightTheme,
           routes: Routes().routes,
+          home:SplashPage()
+          ,
         ),
       ),
     );

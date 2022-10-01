@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:photo_editing_app/core/controllers/bloc/photo_bloc.dart';
 import 'package:photo_editing_app/core/controllers/photo_data_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +20,7 @@ class AppProviders extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => PhotoDataProvider(),
         ),
+        BlocProvider(create:(context) => PhotoBloc(),)
       ],
       child: child,
     );
