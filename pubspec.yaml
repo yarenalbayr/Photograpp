@@ -37,6 +37,8 @@ dependencies:
   shared_preferences: ^2.0.15
   flutter_bloc: ^8.1.1
   bloc: ^8.1.0
+  bloc_concurrency: ^0.2.0
+  stream_transform: ^2.0.0
 
   #Authentication
 

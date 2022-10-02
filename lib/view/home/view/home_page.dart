@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:photo_editing_app/core/controllers/bloc/photo_bloc.dart';
+
 import 'package:photo_editing_app/core/init/theme/theme.dart';
 import 'package:photo_editing_app/view/home/view/home_page_view.dart';
-import 'package:photo_editing_app/view/home/widgets/photo_item.dart';
 
 import '../../../core/constants/constant_values.dart';
+import '../../../core/controllers/photo_bloc/photo_bloc.dart';
 import '../widgets/photo_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,9 +21,6 @@ class _HomePageState extends HomePageView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(onPressed: () async {
-      //   final XFile? pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-      // }),
       appBar: AppBar(
         shape: RoundedRectangleBorder(borderRadius: BorderRadiusConstants().small),
         title: Text(
@@ -32,18 +28,20 @@ class _HomePageState extends HomePageView {
           style: context.textTheme.headlineSmall,
         ),
       ),
-      body: BlocProvider(
-        create: (context)  {
-
-          return PhotoBloc()..add(PhotosFetched());},
-        child: NotificationListener<ScrollNotification>(
+      body: BlocProvider.value(
+        value: photoBloc,
+        child: Builder(builder: (context) {
+          photoBloc.add(PhotosFetched());
+          return NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification notification) {
               if (notification.metrics.pixels == notification.metrics.maxScrollExtent) {
-                context.read<PhotoBloc>().add(PhotosFetched());
+                photoBloc.add(PhotosFetched());
               }
               return true;
             },
-            child: const PhotoList()),
+            child: PhotoList(photoBloc: photoBloc),
+          );
+        }),
       ),
     );
   }
