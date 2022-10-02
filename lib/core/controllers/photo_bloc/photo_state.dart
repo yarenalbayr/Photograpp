@@ -1,14 +1,17 @@
 part of 'photo_bloc.dart';
 
-enum PhotoStatus { initial, success, fail }
+enum PhotoStatus { initial,loading, success, fail }
 
 class PhotoState extends Equatable {
-  PhotoState({this.photos = const <PhotoModel>[], this.status = PhotoStatus.initial, this.hasReachedMax = false});
+  PhotoState({
+    this.photos = const <PhotoModel>[],
+    this.status = PhotoStatus.initial,
+    this.hasReachedMax = false,
+  });
   final PhotoStatus status;
   final List<PhotoModel> photos;
   final bool hasReachedMax;
 
-  int paginatedPageNumber = 1;
 
   PhotoState copyWith({
     List<PhotoModel>? photos,
@@ -23,5 +26,5 @@ class PhotoState extends Equatable {
   }
 
   @override
-  List<Object> get props => [photos, status, hasReachedMax];
+  List<Object> get props => [photos, status, hasReachedMax,];
 }

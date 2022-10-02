@@ -6,16 +6,15 @@ import '../models/photo_data/photo_data_model.dart';
   
 class PhotoDataService {
   PhotoDataService._();
-  late final Uri _url;
   static const accesKey = 'nsPUq-nRnzw6QCJYbuN4dPtXX7pQwhVVB-uNuOWgpJ4';
   static PhotoDataService instance = PhotoDataService._();
   
 
   Future<List<PhotoModel>?> fetchPhotos({int page = 1}) async {
     try {
-      _url =Uri.parse('https://api.unsplash.com/photos?page=$page&client_id=$accesKey');
-      debugPrint(_url.toString());
-      final response = await http.get(_url);
+      var url =Uri.parse('https://api.unsplash.com/photos?page=$page&client_id=$accesKey');
+      debugPrint(url.toString());
+      final response = await http.get(url);
       if (response.statusCode == HttpStatus.ok) {
         final data = jsonDecode(response.body);
         if (data is List) {
