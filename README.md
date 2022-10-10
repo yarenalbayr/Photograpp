@@ -1,16 +1,23 @@
-# photo_editing_app
+# Photograpp
 
-A new Flutter project.
+Photograpp is a wallpaper application that fetches data from Unsplash API and gives user ability to adding photos to favorites, sharing photos and downloading photos. 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Used Packages and Libraries
+
+## State Managemet 
+- [BLoC](https://pub.dev/packages/bloc) package for handling logic and photo fetching also for paginating to next page after every ten photo.
+- [Provider](https://pub.dev/packages/provider) package to manage more specific and small tasks.
+## Network 
+- [Http](https://pub.dev/packages/http) package for maintain network requests and logic.
+## Cache
+- [Shared Preferences](https://pub.dev/packages/shared_preferences) package for saving small data like users favorites locally.
+
+
+# API
+[Unsplash API](https://unsplash.com/developers)
+
+
